@@ -4,11 +4,11 @@ I wrote a data structure in the Rust programming language, which is just a libra
 __Now I've only generated one project. I'll write later, stacks, heaps, linked lists...__
 
 
-> # ***Single-linked lists*** ✅
+> ### ***Single-linked lists*** ✅
 > > I did some simple things like __inserting__, __creating__, and __testing singly linked lists__
 
-> # heap ❌
+> ### heap ❌
 
-> # stack ❌
+> ### stack ❌
 
-> # Binary tree ❌
+> ### Binary tree ❌
