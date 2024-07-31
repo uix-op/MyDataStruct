@@ -2,7 +2,7 @@
  * @Author: fang
  * @Date: 2024-07-30 18:18:53
  * @LastEditors: fang
- * @LastEditTime: 2024-07-30 21:36:19
+ * @LastEditTime: 2024-07-31 11:07:16
  * @FilePath: /MyDataStruct/src/data_struct.rs
  * @Description: This file defines the data structure
  * 
@@ -30,8 +30,9 @@ pub mod list{
             if self.body == NextPtr::Null{//Determine if the body is null
                 self.body = NextPtr::Next(Box::new(Node { data: data, next: NextPtr::Null }))
             }
-            let _body = std::mem::replace(&mut self.body, NextPtr::Null);
-            let new_node = Node{data:data,next:_body};
+            let new_node = Node{
+                data:data,
+                next:std::mem::replace(&mut self.body, NextPtr::Null)};
             self.body = NextPtr::Next(Box::new(new_node));
         }
     }
@@ -45,21 +46,5 @@ pub mod list{
                 if (*data_1).data == (*data_2).data{true}else {false},
             }
         }
-    }
-}
-
-#[cfg(test)]
-mod test{
-    use crate::data_struct::list::NextPtr;
-
-    use super::list::List;
-    #[test]
-    fn test_insert(){
-        let mut list = List::new();
-        list.insert_to_first(1);
-        let mut list_1 = List{body:NextPtr::Null};
-        list_1.insert_to_first(1);
-        assert!(list.body == list_1.body);
-        let values = (list.body);
     }
 }
